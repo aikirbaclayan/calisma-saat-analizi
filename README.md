@@ -65,8 +65,8 @@ Enter your monthly salary and work schedule once. Then type any price and instan
 ## Getting Started
 
 ```bash
-git clone https://github.com/aikirbaclayan/calisma-saat-analizi.git
-cd calisma-saat-analizi
+git clone https://github.com/umitaltinozzz/work-hour-cost-calculator.git
+cd work-hour-cost-calculator
 
 npm install
 
@@ -94,7 +94,7 @@ The key detail: **working days this month** is pulled from a real calendar, not 
 ## Project Structure
 
 ```
-calisma-saat-analizi/
+work-hour-cost-calculator/
 ├── app/                        # Expo Router pages
 │   ├── _layout.tsx             # Root layout & theme provider
 │   ├── index.tsx               # Entry — redirects to onboarding or home
