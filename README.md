@@ -1,105 +1,120 @@
-# Zamanın Değeri ⏱️
+# Zamanın Değeri — Value of Your Time
 
-**Her şeyin bir zaman maliyeti var. Sana gerçek fiyatı gösterelim.**
+**How many hours do you actually work to afford something?**
 
-Bir arkadaşın isteği üzerine yapılmış bu uygulama, aylık maaşını ve çalışma programını kullanarak herhangi bir ürünün kaç saatlik emeğine bedel olduğunu hesaplar. Ürün almadan önce "bu benim kaç saatim?" sorusunu gerçek takvim verisine dayalı olarak yanıtlar.
+[![Expo](https://img.shields.io/badge/Expo-SDK_54-000020?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
+[![React Native](https://img.shields.io/badge/React_Native-0.81-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactnative.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![NativeWind](https://img.shields.io/badge/NativeWind-Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://www.nativewind.dev/)
+[![Zustand](https://img.shields.io/badge/State-Zustand-FF4154?style=for-the-badge)](https://zustand-demo.pmnd.rs/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](./LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)]()
 
----
-
-## Özellikler
-
-- **Gerçek Takvim Hesabı** — Ay bazında gerçek iş günü sayısı (2026 takvimi) kullanılarak hassas hesaplama
-- **Onboarding Akışı** — İsim, aylık maaş ve çalışma programı (haftalık gün + günlük saat) kurulumu
-- **Anlık Hesap** — Ürün fiyatı girildiğinde kaç ay / gün / saat / dakika çalışman gerektiği anında gösterilir
-- **Geçmiş** — Hesaplanan ürünleri kaydet, "aldım / almadım" olarak işaretle
-- **Para Birimi Desteği** — TRY, USD, EUR
-- **Karanlık Mod** — Tam dark mode desteği
-- **Çoklu Dil** — Türkçe ve İngilizce
+&nbsp;
 
 ---
 
-## Ekranlar
+> *"I want to buy headphones — but I don't know if they're actually worth it."*
 
-| Onboarding | Ana Ekran | Ayarlar |
-|---|---|---|
-| Hoş geldin → Maaş → Çalışma programı | Fiyat gir, emek maliyetini gör | Dil, tema, sıfırlama |
+## The Story
 
----
+A friend came to me with a simple frustration. Every time he looked at a price tag, he had no real way to measure it against his own effort. Numbers on a screen meant nothing without context.
 
-## Teknoloji
+**₺4,500 headphones. Is that cheap? Is it expensive?**
 
-| Katman | Teknoloji |
+The real question isn't the price. It's the time.
+
+If you earn ₺30,000 a month and work 9 hours a day, 5 days a week — those headphones cost you **1 day, 3 hours, and 12 minutes** of your life.
+
+That's the number that changes decisions.
+
+So I built this app for him over a weekend. It does one thing and it does it precisely.
+
+## Overview
+
+**Zamanın Değeri** (Value of Your Time) is a React Native app that converts any price into the actual working time it costs you — calculated against real calendar data for the current month, not an averaged estimate.
+
+Enter your monthly salary and work schedule once. Then type any price and instantly see:
+
+- How many **months**, **days**, **hours**, **minutes**, and **seconds** you'd need to work
+- Based on the **real number of working days** this month (weekends, not an average)
+
+## Features
+
+- **Real calendar engine** — Uses actual 2026 calendar data to count working days per month, not a simplified average
+- **Onboarding flow** — Name → monthly net salary → weekly schedule (days + hours per day)
+- **Instant calculation** — Live result as you type the price
+- **History** — Save items, mark them as bought or skipped
+- **Multi-currency** — TRY, USD, EUR
+- **Dark mode** — Full theme support
+- **Bilingual** — Turkish and English (auto-detects device language)
+
+## Tech Stack
+
+| Layer | Technology |
 |---|---|
-| Framework | React Native + Expo (SDK 54) |
-| Navigasyon | Expo Router (file-based) |
-| State | Zustand + AsyncStorage (kalıcı) |
-| Stil | NativeWind (Tailwind CSS) |
-| Animasyon | React Native Reanimated |
-| İkonlar | Lucide React Native |
-| Lokalizasyon | expo-localization + i18n-js |
+| Framework | React Native + Expo SDK 54 |
+| Navigation | Expo Router (file-based) |
+| State | Zustand + AsyncStorage (persistent) |
+| Styling | NativeWind (Tailwind CSS for RN) |
+| Animation | React Native Reanimated |
+| Icons | Lucide React Native |
+| Localization | expo-localization + i18n-js |
+| Language | TypeScript 5.9 |
 
----
-
-## Kurulum
+## Getting Started
 
 ```bash
-# Bağımlılıkları yükle
+git clone https://github.com/aikirbaclayan/calisma-saat-analizi.git
+cd calisma-saat-analizi
+
 npm install
 
-# Geliştirme sunucusunu başlat
+# Start dev server
 npm start
 
-# Android
+# Run on Android
 npm run android
 
-# iOS
+# Run on iOS
 npm run ios
 ```
 
-> Node.js ≥ 18 ve Expo Go uygulaması (ya da fiziksel cihaz/emülatör) gereklidir.
+> Requires Node.js ≥ 18 and either the Expo Go app or a physical device / emulator.
 
----
-
-## Nasıl Çalışır?
-
-1. Aylık net maaşını gir
-2. Haftada kaç gün ve günde kaç saat çalıştığını ayarla
-3. Ana ekranda bir ürünün fiyatını yaz
-4. Uygulama, **o ayın gerçek iş günü sayısını** baz alarak saatlik ücretini hesaplar ve ürün için gereken çalışma süresini gösterir
+## How It Works
 
 ```
-Saatlik Ücret = Aylık Maaş ÷ (Bu Ayki İş Günü × Günlük Çalışma Saati)
-Çalışma Süresi = Ürün Fiyatı ÷ Saatlik Ücret
+Hourly Rate   = Monthly Salary ÷ (Working Days This Month × Daily Hours)
+Working Time  = Product Price  ÷ Hourly Rate
 ```
 
----
+The key detail: **working days this month** is pulled from a real calendar, not `(52 weeks × days per week) / 12`. A month with 3 public holidays gives you a different hourly rate than a clean month — and this app reflects that.
 
-## Proje Yapısı
+## Project Structure
 
 ```
-saat/
-├── app/                    # Expo Router sayfaları
-│   ├── _layout.tsx         # Root layout
-│   ├── index.tsx           # Yönlendirici (onboarding / home)
-│   ├── home/               # Ana hesap ekranı
-│   ├── onboarding/         # welcome → salary → schedule
-│   ├── how-it-works/       # Nasıl çalışır ekranı
-│   └── settings/           # Ayarlar
+calisma-saat-analizi/
+├── app/                        # Expo Router pages
+│   ├── _layout.tsx             # Root layout & theme provider
+│   ├── index.tsx               # Entry — redirects to onboarding or home
+│   ├── home/                   # Main calculator screen
+│   ├── onboarding/             # welcome → salary → schedule
+│   ├── how-it-works/           # Explanation screen
+│   └── settings/               # Language, theme, reset
 ├── src/
-│   ├── components/ui/      # Button, Input, Text, Screen, Container
+│   ├── components/ui/          # Button, Input, Text, Screen, Container
 │   ├── lib/
-│   │   ├── calculator.ts   # Çekirdek hesaplama mantığı
-│   │   ├── calendar2026.ts # Gerçek takvim iş günü verisi
-│   │   ├── i18n.ts         # Lokalizasyon kurulumu
-│   │   └── utils.ts        # Yardımcı fonksiyonlar
+│   │   ├── calculator.ts       # Core calculation logic
+│   │   ├── calendar2026.ts     # Real working-day data for 2026
+│   │   ├── i18n.ts             # Localization setup
+│   │   └── utils.ts            # Shared helpers
 │   └── store/
-│       └── useAppStore.ts  # Zustand global state
+│       └── useAppStore.ts      # Zustand global store
 └── assets/
-    └── i18n/               # tr.json, en.json çeviri dosyaları
+    └── i18n/                   # tr.json, en.json translation files
 ```
 
----
+## License
 
-## Lisans
-
-MIT — Kişisel kullanım için serbesttir.
+MIT — Free to use, modify, and distribute.
