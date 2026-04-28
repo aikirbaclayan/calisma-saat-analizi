@@ -39,6 +39,10 @@ Enter your monthly salary and work schedule once. Then type any price and instan
 - How many **months**, **days**, **hours**, **minutes**, and **seconds** you'd need to work
 - Based on the **real number of working days** this month (weekends, not an average)
 
+## Project Status
+
+Completed mobile utility / active portfolio project. The app is kept public as a focused example of a small, practical React Native product.
+
 ## Features
 
 - **Real calendar engine** — Uses actual 2026 calendar data to count working days per month, not a simplified average
